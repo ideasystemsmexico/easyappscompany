@@ -1,24 +1,40 @@
-on: 
+name: Build and deploy
+on:
   push:
-    branches:
-      - main
-jobs:
-  deploy_job:
-    runs-on: ubuntu-latest
-    name: Deploy
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      # Mostrar variables de entorno para depuración (sin exponer contraseñas)
-      - name: Print server name
-        run: echo ${{ secrets.FTP_SERVER }}
+    branches: [main]
+  workflow_dispatch:
 
-      - name: Deploy build files
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+jobs:
+  build:
+    name: Build ⛏
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@main
+      - name: Install dependencies
+        run: npm ci
+      - name: Build dependencies
+        run: npm run build
+      - name: Archive production artifact
+        uses: actions/upload-artifact@main
         with:
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          server: ${{ secrets.FTP_SERVER }}
-          port: 21  # Puerto estándar para FTP
-          remote_path: '/home/easyappscompany/public_html'
-          sftp_only: true
+          name: dist
+          path: dist
+  deploy:
+    name: Deploy 🚀
+    needs: build
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Checkout repository
+        uses: actions/checkout@main
+      - name: Download artifact
+        uses: actions/download-artifact@main
+        with: 
+          name: dist
+          path: dist
+      - name: Sync files to hosting
+        uses: SamKirkland/FTP-Deploy-Action@4.0.0
+        with: 
+          server: ftp.easyappscompany.com
+          username: ftpwebsite@easyappscompany.com
+          password: ${{ secrets.ftp_password }}

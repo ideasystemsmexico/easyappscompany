@@ -37,4 +37,4 @@ jobs:
         with: 
           server: ftp.easyappscompany.com
           username: ftpwebsite@easyappscompany.com
-          password: ${{ secrets.ftp_password }}
+          password: ${{ secrets.FTP_PASSWORD }}

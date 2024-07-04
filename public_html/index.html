@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>EasyAppsCompany</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/easyApps_logo.png" />
+    <!-- Load Required CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Font CSS -->
+    <link href="assets/css/boxicon.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+    <!-- Load Template CSS -->
+    <link rel="stylesheet" href="assets/css/templatemo.css" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/custom.css" />
+    <!-- External CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css" />
+
+
+
+    <style>
+        .navbar-brand h1 {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand i {
+            margin-right: 10px;
+        }
+
+        .navbar-light .navbar-nav .nav-link {
+            color: #333;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-light .navbar-nav .nav-link:hover {
+            color: #00ff37;
+        }
+
+        .dropdown-menu {
+            border-radius: 0;
+            border: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .dropdown-menu.show {
+            transform: translateY(10px);
+            opacity: 1;
+        }
+
+        .dropdown-item {
+            transition: background-color 0.3s ease;
+        }
+
+        .dropdown-item:hover {
+            background-color: #f8f9fa;
+        }
+
+        .navbar-toggler {
+            border: none;
+        }
+
+        .navbar-toggler:focus {
+            outline: none;
+            box-shadow: none;
+        }
+
+        .modal-content {
+            background-color: #f8f9fa;
+        }
+
+        .modal-header {
+            border-bottom: none;
+        }
+
+        .modal-title {
+            color: #333;
+        }
+
+        .close {
+            color: #333;
+        }
+
+        .carousel-inner img {
+            width: 50%;
+            max-height: 80vh;
+            object-fit: cover;
+        }
+
+        .modal-dialog.custom-modal {
+            max-width: 50%;
+            margin: 10vh auto;
+        }
+
+        .custom-img-size {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .custom-img {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .company-color {
+            color: #6721c3 !important;
+        }
+
+        .custom-color {
+            color: #32005d !important;
+        }
+
+        .custom-bg-color {
+            background: linear-gradient(to right, #1201309f 30%, #14024c 70%) !important;
+        }
+
+        .navbar-nav .nav-item .nav-link {
+            transition: color 0.2s;
+        }
+
+        .navbar-nav .nav-item .nav-link:hover {
+            color: #6721c3 !important;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 10px;
+            right: 20px;
+            display: none;
+            font-size: 40px;
+            width: 40px;
+            height: 40px;
+            line-height: 50px;
+            text-align: center;
+            background-color: #600ca970;
+            color: #ffffff;
+            border-color: #5734af;
+            border-radius: 50%;
+            z-index: 9999;
+        }
+
+        .back-to-top:hover {
+            border-color: #250160;
+            background-color: #831fa799;
+            color: #fff;
+        }
+
+        .text-primary {
+            color: rgba(199, 182, 203, 0.907) !important;
+        }
+
+        .dropdown-menu {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 1rem;
+        }
+
+        .dropdown-submenu {
+            display: flex;
+            flex-direction: column;
+            margin-right: 2rem;
+        }
+
+        .dropdown-item {
+            white-space: nowrap;
+            padding: 0.25rem 0;
+            padding: 10px 20px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .navbar-nav .dropdown-menu {
+            border-radius: 0.5rem;
+            border: 1px solid #ddd;
+            display: none;
+        }
+
+        .navbar-nav .dropdown-menu.show {
+            display: block;
+        }
+
+        .dropdown-item:hover {
+            background-color: #f8f9fa;
+            color: #000;
+        }
+
+        .animate__animated.animate__fadeInDown {
+            animation-name: fadeInDown;
+            animation-duration: 0.5s;
+        }
+        .bg-gradient{
+            background: linear-gradient(to right,
+                    #1201309f 30%,
+                    #14024c 70%) !important;
+        }
+
+        .navbar-nav .nav-link {
+            color: rgba(255, 255, 255, 0.768);
+        }
+
+        .navbar-dark .navbar-nav .nav-link {
+            color: rgb(213, 210, 216);
+        }
+
+        .navbar-dark .navbar-nav .nav-link:hover,
+        .navbar-dark .navbar-nav .nav-link:focus {
+            color: #7b3ccd;
+        }
+
+        .navbar-dark .navbar-toggler {
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .dropdown-menu {
+            background-color: #2c2c2c;
+        }
+
+        .dropdown-menu .dropdown-item {
+            color: white;
+        }
+
+        .dropdown-menu .dropdown-item:hover,
+        .dropdown-menu .dropdown-item:focus {
+            background-color: #ba77f036;
+            border-radius: 4%;
+        }
+
+        .project {
+        transition: all 0.3s ease;
+        opacity: 1;
+    }
+
+    .project.hide {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+        /* Cambiar el fondo de la sección */
+        .custom-bg-color {
+        background-color: #ffdd57; /* Color de fondo personalizado */
+    }
+
+    /* Cambiar el color de los botones */
+    .filter-btn {
+        background-color: #69098b04; /* Color de fondo de los botones */
+        border-color: #000000; /* Color del borde de los botones */
+    }
+
+    /* Cambiar el color de los botones al hacer hover */
+    .filter-btn:hover {
+        background-color: #c944c939; /* Color de fondo al hacer hover */
+        border-color: #8b11b0; /* Color del borde al hacer hover */
+        color: #ffffff; /* Color del texto al hacer hover */
+    }
+    .filter-btn:active,
+    .filter-btn.active {
+        background-color: #c944c939 !important; /* Color de fondo verde */
+        border-color: #c944c9 !important; /* Color del borde verde */
+        color: #ffffff; /* Color del texto */
+    }
+    .banner-button{
+        color: #14024c;
+        border-color: #14024c;
+    }
+    .banner-button:hover{
+        background-color: #14024c; 
+        border-color: #8b11b0; 
+        color: #ffffff; 
+    }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <nav id="main_nav" class="navbar navbar-expand-lg navbar-dark bg-gradient">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a class="navbar-brand h1" href="index.html">
+                <img src="./assets/img/easyApps_logo.png" alt="Logo" style="height: 90px;">
+                <span class="text-white h4">EasyApps</span><span class="text-primary h4">Company</span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbar-toggler-success" aria-controls="navbar-toggler-success" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbar-toggler-success">
+                <ul class="navbar-nav">
+                    <!-- Apps Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownElectronics" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            APPS
+                        </a>
+                        <ul class="dropdown-menu animate__animated animate__fadeInDown"
+                            aria-labelledby="navbarDropdownElectronics">
+                            <li>
+                                <a class="dropdown-item" href="Stellar.html">STELLAR APP</a>
+                            </li>
+                            <li><a class="dropdown-item" href="#">STELLAR ERP</a></li>
+                            <li>
+                                <a class="dropdown-item" href="https://ideasystems.com.mx/">IDEASYSTEMS</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- Portfolio Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAppliances" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            PORTAFOLIO
+                        </a>
+                        <ul class="dropdown-menu animate__animated animate__fadeInDown"
+                            aria-labelledby="navbarDropdownAppliances">
+                            <li>
+                                <a class="dropdown-item" href="Catalogo.html">DEMO CATALOGO</a>
+                            </li>
+                            <li><a class="dropdown-item" href="Menu.html">DEMO MENU</a></li>
+                            <li><a class="dropdown-item" href="#">DEMO</a></li>
+                        </ul>
+                    </li>
+                    <!-- About -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">NOSOTROS</a>
+                    </li>
+                    <!-- Contact -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">CONTACTO</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Close Header -->
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="back-to-top">
+        <i class="bx bx-chevron-up"></i>
+    </div>
+
+    <!-- Start Banner Hero -->
+    <div class="banner-wrapper bg-light">
+        <div id="index_banner" class="banner-vertical-center-index container-fluid pt-5">
+            <!-- Start slider -->
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
+                    <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
+                    <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="py-5 row d-flex align-items-center">
+                            <div class="banner-content col-lg-8 col-8 offset-2 m-lg-auto text-left py-5 pb-5">
+                                <h1
+                                    class="banner-heading h1 text-secondary display-3 mb-0 pb-5 mx-0 px-0 light-300 custom-color">
+                                    Desarrollando <strong>Ideas</strong> para <br />tu negocio
+                                </h1>
+                                <p class="banner-body py-3 mx-5 px-5" style="text-align: justify">
+                                    ¡No dejes que tus ideas se queden en el papel! Transforma
+                                    tus sueños en aplicaciones innovadoras con EasyAppsCompany.
+                                    Con nuestro equipo de expertos y tecnología de punta,
+                                    hacemos realidad tus proyectos digitales de manera rápida y
+                                    eficiente. Ya sea una app para móviles, una plataforma web o
+                                    cualquier otra solución tecnológica, estamos aquí para
+                                    ayudarte a alcanzar el éxito. ¡Comienza hoy y lleva tu
+                                    visión al siguiente nivel con EasyAppsCompany!
+                                </p>
+                                <a class="banner-button btn rounded-pill btn-outline-primary btn-lg px-4" href="#" role="button">Empezar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="py-5 row d-flex align-items-center">
+                            <div class="banner-content col-lg-8 col-8 offset-2 m-lg-auto text-left py-5 pb-5">
+                                <h1
+                                    class="banner-heading h1 text-secondary display-3 mb-0 pb-3 mx-0 px-0 light-300 custom-color">
+                                    EasyAppsCompany
+                                </h1>
+                                <p class="banner-body text-muted py-3">
+                                    Haz realidad tus ideas con EasyAppsCompany: Somos expertos
+                                    en desarrollo de apps móviles y te ayudamos a crear la app
+                                    que tu negocio o proyecto necesita.
+                                </p>
+                                <a class="banner-button btn rounded-pill btn-outline-primary btn-lg px-4" href="#"
+                                    role="button">Empezar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="py-5 row d-flex align-items-center">
+                            <div class="banner-content col-lg-8 col-8 offset-2 m-lg-auto text-left py-5 pb-5">
+                                <h1
+                                    class="banner-heading h1 text-secondary display-3 mb-0 pb-3 mx-0 px-0 light-300 custom-color">
+                                    Simplificando la tecnología, potenciando tu negocio.
+                                </h1>
+                                <p class="banner-body text-muted py-3">
+                                    EasyAppsCompany es una empresa innovadora y dinámica
+                                    especializada en el desarrollo de aplicaciones móviles
+                                    personalizadas. Nuestro equipo de expertos en tecnología y
+                                    diseño trabaja de manera conjunta para transformar ideas en
+                                    aplicaciones funcionales y atractivas que impulsan el
+                                    crecimiento y la eficiencia de nuestros clientes.
+                                </p>
+                                <a class="banner-button btn rounded-pill btn-outline-primary btn-lg px-4" href="#"
+                                    role="button">Empezar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev text-decoration-none" href="#carouselExampleIndicators" role="button"
+                    data-bs-slide="prev">
+                    <i class="bx bx-chevron-left"></i>
+                    <span class="visually-hidden">Previous</span>
+                </a>
+                <a class="carousel-control-next text-decoration-none" href="#carouselExampleIndicators" role="button"
+                    data-bs-slide="next">
+                    <i class="bx bx-chevron-right"></i>
+                    <span class="visually-hidden">Next</span>
+                </a>
+            </div>
+            <!-- End slider -->
+        </div>
+    </div>
+    <!-- End Banner Hero -->
+<!-- SERVICIOS -->
+<section class="service-wrapper py-3">
+    <div class="container-fluid pb-3">
+        <div class="row">
+            <h2 class="h2 text-center col-12 py-5 semi-bold-600">Servicios</h2>
+            <div class="service-header col-2 col-lg-3 text-end light-300">
+                <i class="bx bx-gift h3 mt-1"></i>
+            </div>
+            <div class="service-heading col-10 col-lg-9 text-start float-end light-300">
+                <h2 class="h3 pb-4 typo-space-line">Tu App Soñada esta aqui.</h2>
+            </div>
+        </div>
+        <p class="service-footer col-10 offset-2 col-lg-9 offset-lg-3 text-muted px-2 justify-content-center"
+            style="text-align: justify">
+            Transformamos tu visión en realidad. En EasyAppsCompany, nos
+            especializamos en el desarrollo de aplicaciones a medida, adaptándonos
+            a tus necesidades y deseos específicos. Cuéntanos cómo imaginas tu
+            aplicación y nuestro equipo de expertos se encargará de diseñarla y
+            desarrollarla con la más alta calidad y precisión.
+        </p>
+    </div>
+
+    <section id="servicios" class="service-tag py-4 bg-secondary custom-bg-color">
+        <div class="col-md-12">
+            <ul class="nav d-flex justify-content-center">
+                <li class="nav-item mx-lg-4">
+                    <a class="filter-btn nav-link btn-outline-primary shadow rounded-pill text-light px-4 light-300"
+                        href="#" data-filter="*">All</a>
+                </li>
+                <li class="nav-item mx-lg-4">
+                    <a class="filter-btn nav-link btn-outline-primary shadow rounded-pill text-light px-4 light-300"
+                        href="#" data-filter=".stellar">STELLAR APP</a>
+                </li>
+                <li class="nav-item mx-lg-4">
+                    <a class="filter-btn nav-link btn-outline-primary shadow rounded-pill text-light px-4 light-300"
+                        href="#" data-filter=".catalog">DEMO CATALOGO</a>
+                </li>
+                <li class="nav-item mx-lg-4">
+                    <a class="filter-btn nav-link btn-outline-primary shadow rounded-pill text-light px-4 light-300"
+                        href="#" data-filter=".menu">DEMO MENU</a>
+                </li>
+            </ul>
+        </div>
+    </section>
+</section>
+
+<section class="container overflow-hidden py-5">
+    <div class="row gx-5 gx-sm-3 gx-lg-1 gy-lg-1 gy-3 pb-3 projects">
+        <!-- Start Recent Work -->
+        <div class="col-xl-3 col-md-4 col-sm-6 project stellar">
+            <a href="./Stellar.html"
+                class="service-work card border-0 text-white shadow-sm overflow-hidden mx-5 m-sm-0">
+                <img class="service card-img" src="./assets/img/ideasystems.jpg" alt="Card image" />
+                <div class="service-work-vertical card-img-overlay d-flex align-items-end">
+                    <div class="service-work-content text-left text-light">
+                        <span class="btn btn-outline-light rounded-pill mb-lg-3 px-lg-4 light-300">DEMO STELLAR APP</span>
+                        <p class="card-text"></p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- End Recent Work -->
+
+        <!-- Start Recent Work -->
+        <div class="col-xl-3 col-md-4 col-sm-6 project catalog">
+            <a href="./Catalogo.html"
+                class="service-work card border-0 text-white shadow-sm overflow-hidden mx-5 m-sm-0">
+                <img class="card-img" src="./assets/img/Portada.jpg" alt="Card image" />
+                <div class="service-work-vertical card-img-overlay d-flex align-items-end">
+                    <div class="service-work-content text-left text-light">
+                        <span class="btn btn-outline-light rounded-pill mb-lg-3 px-lg-4 light-300">DEMO CATALOGO</span>
+                        <p class="card-text"></p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <!-- End Recent Work -->
+
+        <!-- Start Recent Work -->
+        <div class="col-xl-3 col-md-4 col-sm-6 project menu">
+            <a href="./Menu.html"
+                class="service-work card border-0 text-white shadow-sm overflow-hidden mx-5 m-sm-0">
+                <img class="card-img" src="./assets/img/menu1.jpg" alt="Card image" />
+                <div class="service-work-vertical card-img-overlay d-flex align-items-end">
+                    <div class="service-work-content text-left text-light">
+                        <span class="btn btn-outline-light rounded-pill mb-lg-3 px-lg-4 light-300">DEMO MENU</span>
+                        <p class="card-text"></p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <!-- End Recent Work -->
+    </div>
+</section>
+<!-- End Service -->
+
+
+
+    <!-- Start Footer -->
+    <footer class="bg-secondary pt-4 custom-bg-color text-light">
+        <div class="container">
+            <div class="row py-4">
+                <!-- Columna 1 -->
+                <div class="col-lg-3 col-md-6 mb-4 mr-0">
+                    <a class="navbar-brand" href="index.html">
+                        <span class="h5 ml-2 text-dark">EasyApps</span><span
+                            class="h5 text-primary font-weight-bold">Company</span>
+                    </a>
+                    <p class="my-4" style="text-align: justify">
+                        Te invitamos a seguirnos en nuestras redes sociales para que
+                        puedas mantenerte al tanto de todas nuestras novedades y
+                        actualizaciones.
+                    </p>
+                    <ul class="list-inline footer-icons light-300">
+                        <li class="list-inline-item">
+                            <a class="text-light" target="_blank" href="https://www.facebook.com/ideasystemsmexico">
+                                <i class="bx bxl-facebook bx-md"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="text-light" target="_blank" href="https://www.linkedin.com/">
+                                <i class="bx bxl-linkedin bx-md"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="text-light" target="_blank"
+                                href="https://api.whatsapp.com/send?phone=525518890953">
+                                <i class="bx bxl-whatsapp bx-md"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Columna 2 -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h3 class="h4 pb-3 light-300">Nosotros</h3>
+                    <ul class="list-unstyled light-300">
+                        <li class="pb-2">
+                            <i class="bx bxs-chevron-right"></i><a class="text-decoration-none text-light"
+                                href="#">Inicio</a>
+                        </li>
+                        <li class="pb-2">
+                            <i class="bx bxs-chevron-right"></i><a class="text-decoration-none text-light py-1"
+                                href="#">Acerca de</a>
+                        </li>
+                        <li class="pb-2">
+                            <i class="bx bxs-chevron-right"></i><a class="text-decoration-none text-light py-1"
+                                href="#">Trabajo</a>
+                        </li>
+                        <li class="pb-2">
+                            <i class="bx bxs-chevron-right"></i><a class="text-decoration-none text-light py-1"
+                                href="#">Precios</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3 -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h3 class="h4 pb-3 light-300">Cliente</h3>
+                    <ul class="list-unstyled light-300">
+                        <li class="pb-2">
+                            <i class="bx bxs-chevron-right"></i><a class="text-decoration-none text-light"
+                                href="#">Inicio de sesión</a>
+                        </li>
+                        <li class="pb-2">
+                            <i class="bx bxs-chevron-right"></i><a class="text-decoration-none text-light py-1"
+                                href="#">Registrarse</a>
+                        </li>
+                        <li class="pb-2">
+                            <i class="bx bxs-chevron-right"></i><a class="text-decoration-none text-light py-1"
+                                href="#">Blog</a>
+                        </li>
+                        <li class="pb-2">
+                            <i class="bx bxs-chevron-right"></i><a class="text-decoration-none text-light py-1" href="#">Recuperar</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Columna 4 -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h3 class="h4 pb-3 light-300">Informacion de Contacto</h3>
+                    <ul class="list-unstyled light-300">
+                        <li class="pb-1">
+                            <i class="bx bxs-chevron-right"></i> Av. Stim 33, Bosques de
+                            Lomas, CDMX
+                        </li>
+                        <li class="pb-1">
+                            <i class="bx bxs-chevron-right"></i> +(52) 55 1889 0953
+                        </li>
+                        <li class="pb-1">
+                            <i class="bx bxs-chevron-right"></i> ventas@easyappcompany.com
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Copyrigth -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="list-inline mb-0 light-300">
+                        <li class="list-inline-item">&copy; 2024 EasyAppsCompany. All rights reserved. A success of company. Design by
+                            <i></i><a class="text-decoration-none text-light py-1" href="https://ideasystems.com.mx/">IdeaSystems</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- End Footer -->
+
+    <!-- Bootstrap -->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <!-- Load jQuery require for isotope -->
+    <script src="assets/js/jquery.min.js"></script>
+    <!-- Isotope -->
+    <script src="assets/js/isotope.pkgd.js"></script>
+    <!-- Page Script -->
+
+    <!-- Templatemo -->
+    <script src="assets/js/templatemo.js"></script>
+    <!-- Custom -->
+    <script src="assets/js/custom.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $(".js-menu-icon").on("click", function () {
+                $(this).toggleClass("fa-times fa-bars");
+                $(".menu .container").removeClass("container--is-visible");
+                $(".menu li").removeClass("is-selected");
+                $(".js-navbar").toggleClass("navbar--is-visible");
+            });
+
+            $(".menu li").on("click", function (e) {
+                e.preventDefault();
+                var $this = $(this);
+                $this.toggleClass("is-selected");
+
+                var $currentContainer = $(this).find(".container");
+                $currentContainer.toggleClass("container--is-visible");
+
+                $(".menu .container")
+                    .not($currentContainer)
+                    .removeClass("container--is-visible");
+                $(".menu li").not($this).removeClass("is-selected");
+            });
+        });
+    </script>
+
+<!-- JavaScript para filtrado y animación -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projects = document.querySelectorAll('.project');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', (event) => {
+                event.preventDefault();
+                const filter = button.getAttribute('data-filter');
+
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                projects.forEach(project => {
+                    if (filter === '*' || project.classList.contains(filter.substring(1))) {
+                        project.classList.remove('hide');
+                    } else {
+                        project.classList.add('hide');
+                    }
+                });
+            });
+        });
+    });
+</script>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const dropdowns = document.querySelectorAll(".nav-item.dropdown");
+
+            dropdowns.forEach(function (dropdown) {
+                const toggle = dropdown.querySelector(".nav-link.dropdown-toggle");
+                const menu = dropdown.querySelector(".dropdown-menu");
+
+                toggle.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    const isVisible = menu.classList.contains("show");
+                    closeAllDropdowns();
+                    if (!isVisible) {
+                        menu.classList.add("show");
+                    }
+                });
+            });
+
+            function closeAllDropdowns() {
+                document.querySelectorAll(".dropdown-menu").forEach(function (menu) {
+                    menu.classList.remove("show");
+                });
+            }
+
+            document.addEventListener("click", function (event) {
+                if (!event.target.closest(".nav-item.dropdown")) {
+                    closeAllDropdowns();
+                }
+            });
+        });
+    </script>
+
+
+    <script>
+        // Show or hide the back-to-top button
+        window.onscroll = function () {
+            var backToTopButton = document.getElementById("back-to-top");
+            if (
+                document.body.scrollTop > 100 ||
+                document.documentElement.scrollTop > 100
+            ) {
+                backToTopButton.style.display = "block";
+            } else {
+                backToTopButton.style.display = "none";
+            }
+        };
+
+        // Scroll back to top when the button is clicked
+        document
+            .getElementById("back-to-top")
+            .addEventListener("click", function () {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            });
+    </script>
+</body>
+
+</html>

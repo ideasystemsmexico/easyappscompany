@@ -9,11 +9,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      # Ver el contenido del directorio para depuración
-      - name: List files
-        run: ls -R build
-
       # Mostrar variables de entorno para depuración (sin exponer contraseñas)
       - name: Print server name
         run: echo ${{ secrets.FTP_SERVER }}

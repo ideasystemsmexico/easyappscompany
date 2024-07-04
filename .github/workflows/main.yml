@@ -15,7 +15,7 @@ jobs:
           with:
             username: ${{ secrets.FTP_USERNAME }}
             password: ${{ secrets.FTP_PASSWORD }}
-            server: ${{ secrets.  }}
+            server: ${{ secrets.FTP_SERVER }}
             port: ${{ secrets.FTP_PORT }}
             remote_path: '/home/easyappscompany/public_html'
             sftp_only: true

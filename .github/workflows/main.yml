@@ -1,20 +1,16 @@
-on: 
-  push:
-    branches:
-      - main
+on: push
+name: 🚀 Deploy website on push
 jobs:
-  deploy_job:
+  web-deploy:
+    name: 🎉 Deploy
     runs-on: ubuntu-latest
-    name: Deploy
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Deploy file
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
-        with:
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          server: ${{ secrets.FTP_SERVER }}
-          port: ${{ secrets.FTP_PORT }}
-          remote_path: '/home/easyappscompany/public_html'
-          sftp_only: true
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v4
+    
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      with:
+        server: ftp.easyappscompany.com
+        username: ftpwebsite@easyappscompany.com
+        password: ${{ secrets.FTP_PASSWORD }}
